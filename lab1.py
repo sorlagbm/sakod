@@ -14,53 +14,7 @@ def insert_sort(a) -> []:
             a[item] = temp
             item -= 1
     return a
-
-#Быстрая сортировка
-def fast_sort(a) -> []:
-    flag = True
-    t = 0
-    for c in range(0, len(a)):
-        flag = True
-        for i in range(0, len(a) - (c + 1)):
-            if a[i] > a[i + 1]:
-                flag = False
-                t = a[i]
-                a[i] = a[i + 1]
-                a[i + 1] = t
-        if flag == True:
-            break
-    return a
-
-#Двухпутевое слияние
-def merge_sort(a):
-    mid = len(a) // 2
-    if len(a) % 2 == 1:
-        mid += 1
-    left = a[0:mid]
-    right = a[mid:len(a)]
-    k = 0
-    i = 0
-    j = 0
-    while (i < mid and mid + j < len(a)):
-        if (left[i] <= right[j]):
-            a[k] = left[i]
-            i += 1
-        else:
-            a[k] = right[j]
-            j += 1
-            k += 1
-        if i < mid:
-            while k < len(a):
-                a[k] = left[i]
-                i += 1
-                k += 1
-        else:
-            while k < len(a):
-                a[k] = right[j]
-                j = j + 1
-                k = k + 1
-
-
+    
 def main():
     n = 5
 
@@ -71,8 +25,9 @@ def main():
     print(a)
     start_time = time.monotonic_ns()
     insert_sort(a)
-    print((time.monotonic_ns() - start_time))
+    stop_time = time.monotonic_ns()
     print(a)
+    print((stop_time - start_time))
 
 if __name__ == "__main__":
     main()
