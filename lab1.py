@@ -1,7 +1,7 @@
 import time
 import sys
 import random
-
+ 
 #Сортировка вставками
 def insertion_sort(a, n) -> []:
     if n > 0:
