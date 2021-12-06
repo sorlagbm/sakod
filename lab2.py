@@ -8,6 +8,7 @@ class Node:
 
 class SuffixTree:
     def __init__(self, str):
+        self.text = str
         self.nodes = [Node()]
         for i in range(len(str)):
             self.addSuffix(str[i:])
@@ -42,7 +43,15 @@ class SuffixTree:
                     break
                 j = j + 1
             i = i + j
-            n = n2 
+            n = n2
+
+    def find_s(self, key):
+        a = []
+        for i in range(0, len(self.nodes)):
+            if key in self.nodes[i].sub:
+                a.append(i)
+
+        return len(self.text) - len(self.nodes[a[len(a) - 1]].sub)
 
 # Поиск подстроки с помощью Z-функции
 def zfunction(s : str) -> []:
@@ -66,22 +75,13 @@ def zsearch(text : str, pattern : str) -> int:
         if zf[i] == m:
             return i
 
-def tree_search(a, b):
-    pass
-
 def main() -> None:
     # Z-функция
     s = "string"
     print(zsearch(s, "tri"))
 
     c = SuffixTree("fsdasdf$")
-    c.visualize()
-    key = "das"
-    d = 0
-    for i in range(0, len(c.nodes)):
-        if c.nodes[i].sub == key:
-            d = i
-    print(d)
+    print(c.find_s("sd"))
 
 if __name__ == '__main__':
     main()
