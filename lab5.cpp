@@ -5,7 +5,7 @@
 #include <vector>
 #include "ConnectedList.h"
 using namespace std;
-
+ 
 class EmptyList_exception : public exception {
 private:
     string message;
