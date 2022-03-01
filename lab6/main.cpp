@@ -3,7 +3,7 @@
 #include <vector>
 #include <random>
 using namespace std;
-
+ 
 /*
 * Построение 3 - 5 +
 * Модификация 1 - 4 +
