@@ -12,6 +12,9 @@
 #include <vector>
 #include <QInputDialog>
 #include <QCalendarWidget>
+#include <QListWidgetItem>
+#include <algorithm>
+#include <QFileDialog>
 using namespace std;
 
 QT_BEGIN_NAMESPACE
@@ -39,13 +42,29 @@ private slots:
 
     void on_actionAdd_Student_triggered();
 
+    void on_actionDelete_Group_triggered();
+
+    void on_actionVisit_Sort_triggered();
+
+    void on_actionName_Sort_triggered();
+
+    void on_listWidget_itemDoubleClicked(QListWidgetItem *item);
+
+    void on_actionNew_FIle_triggered();
+
+    void on_actionOpen_File_triggered();
+
+    void on_actionSave_triggered();
+
 private:
     Ui::MainWindow *ui;
     QFile* workFile;
-    stw studentList;
-    vector<Date> taskList;
-    ConnectedList<QTableWidget*> windowList;
-    QStringList Clabels;
-    QStringList Rlabels;
+    vector<vector<QStringList>> field;
+    vector<stw> studentList;
+    vector<vector<student>> studentLab;
+    vector<vector<Date>> taskList;
+    vector<QTableWidget*> windowList;
+    vector<QStringList> Clabels;
+    vector<QStringList> Rlabels;
 };
 #endif // MAINWINDOW_H

@@ -9,6 +9,8 @@ struct Date {
     unsigned year;
     Date(unsigned Day = 0, unsigned Month = 0, unsigned Year = 0)
         : day(Day), month(Month), year(Year) {}
+    int readFromFile(const std::string& FileName);
+    int writeToFile(const std::string& FileName);
 
 };
 
